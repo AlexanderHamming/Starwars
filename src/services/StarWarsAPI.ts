@@ -1,5 +1,6 @@
 import axios from "axios";
 import { FilmResponse } from "../types/Films";
+import { PeopleResponse } from "../types/People";
 
 const instance = axios.create({
     baseURL: "https://swapi.thehiveresistance.com/api",
@@ -18,4 +19,5 @@ const get = async <T>(endpoint: string) => {
 }
 
 
-export const getFilms = () => get<FilmResponse>('/films/');
+export const getFilms = (page: number) => get<FilmResponse>(`/films?page=${page}`);
+export const getPeople = (page: number) => get<PeopleResponse>(`/people?page=${page}`);
