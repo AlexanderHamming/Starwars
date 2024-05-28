@@ -5,4 +5,5 @@ export default interface PaginationPrips {
     onPreviousPage: () => void;
     currentPage: number;
     totalPages?: number;
+    isLoading: boolean;
 };

@@ -3,6 +3,7 @@ import { getPeople } from '../services/StarWarsAPI';
 import { Person, PeopleResponse } from '../types/People';
 import { Container, Row, Col, Card, Alert, Spinner } from 'react-bootstrap';
 import Pagination from '../components/Pagination';
+import SearchBar from '../components/Search_Bar';
 
 const People = () => {
   const [people, setPeople] = useState<Person[]>([]);
@@ -12,13 +13,14 @@ const People = () => {
   const [totalPages, setTotalPages] = useState<number | undefined>(undefined);
   const [hasNextPage, setHasNextPage] = useState<boolean>(false);
   const [hasPreviousPage, setHasPreviousPage] = useState<boolean>(false);
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
 
   useEffect(() => {
-    const fetchPeople = async (page: number) => {
+    const fetchPeople = async (page: number, query: string = '') => {
       setIsLoading(true);
       try {
-        const data: PeopleResponse = await getPeople(page);
+        const data: PeopleResponse = await getPeople(page, query);
         setPeople(data.data);
         setTotalPages(data.last_page);
         setHasNextPage(data.next_page_url !== null);
@@ -29,8 +31,8 @@ const People = () => {
         setIsLoading(false);
     };
 
-    fetchPeople(currentPage);
-  }, [currentPage]);
+    fetchPeople(currentPage, searchQuery);
+  }, [currentPage, searchQuery]);
 
   const handleNextPage = () => {
     if (hasNextPage) {
@@ -44,12 +46,24 @@ const People = () => {
     }
   };
 
+  const handleSearch = (query: string) => {
+    setCurrentPage(1); 
+    setSearchQuery(query);
+    setIsLoading(true);
+
+  };
+
  
   return (
     <Container>
       <h1>People</h1>
+
+      <SearchBar onSearch={handleSearch} />
+
       {isLoading && <Spinner animation="border" role="status"><span className="visually-hidden">Loading...</span></Spinner>}
       {error && <Alert variant="danger">{error.message}</Alert>}
+
+
       <Row>
         {people.map((person) => (
           <Col key={person.id} sm={12} md={6} lg={24} xl={3} className="mb-4">
@@ -70,7 +84,7 @@ const People = () => {
           onPreviousPage={handlePreviousPage}
           currentPage={currentPage}
           totalPages={totalPages}
-  
+          isLoading={isLoading}
       />
     </Container>
   );

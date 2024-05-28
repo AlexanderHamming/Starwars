@@ -19,5 +19,12 @@ const get = async <T>(endpoint: string) => {
 }
 
 
-export const getFilms = (page: number) => get<FilmResponse>(`/films?page=${page}`);
-export const getPeople = (page: number) => get<PeopleResponse>(`/people?page=${page}`);
+export const getFilms = (page: number, query: string = '') => {
+	const endpoint = query ? `/films?page=${page}&search=${query}` : `/films?page=${page}`;
+	return get<FilmResponse>(endpoint);
+  };
+
+  export const getPeople = (page: number, query: string = '') => {
+	const endpoint = query ? `/people?page=${page}&search=${query}` : `/people?page=${page}`;
+	return get<PeopleResponse>(endpoint);
+  };
