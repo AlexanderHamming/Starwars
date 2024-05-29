@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { getFilms } from '../services/StarWarsAPI';
 import { Film, FilmResponse } from '../types/Films';
 import { Container, Row, Col, Card, Alert, Spinner } from 'react-bootstrap';
 import Pagination from '../components/Pagination';
 import SearchBar from '../components/Search_Bar';
+import { Link } from 'react-router-dom';
+
 
 const Films = () => {
   const [films, setFilms] = useState<Film[]>([]);
@@ -65,13 +67,16 @@ const Films = () => {
 
       <Row>
         {films.map((film) => (
+            
           <Col key={film.id} sm={12} md={6} lg={4} xl={3} className="mb-4">
-            <Card>
-              <Card.Img variant="top" src={film.image_url} alt={film.title} height={400} />
-              <Card.Body>
-                <Card.Title>{film.title}</Card.Title>
-              </Card.Body>
-            </Card>
+             <Link to={`/films/${film.id}`}>
+              <Card>
+                <Card.Img variant="top" src={film.image_url} alt={film.title} height={400} id=""/>
+                <Card.Body>
+                  <Card.Title id='card-title'>{film.title}</Card.Title>
+                </Card.Body>
+              </Card>
+            </Link>
           </Col>
         ))}
       </Row>

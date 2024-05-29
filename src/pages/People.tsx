@@ -70,7 +70,7 @@ const People = () => {
             <Card>
               <Card.Img variant="top" src={person.image_url} alt={person.name} height={400} />
               <Card.Body>
-                <Card.Title>{person.name}</Card.Title>
+                <Card.Title id='card-title'>{person.name}</Card.Title>
               </Card.Body>
             </Card>
           </Col>

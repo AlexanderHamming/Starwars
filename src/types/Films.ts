@@ -1,3 +1,29 @@
+export interface Character {
+  id: number;
+  name: string;
+}
+
+export interface Planet {
+  id: number;
+  name: string;
+}
+
+export interface Species {
+  id: number;
+  name: string;
+}
+
+export interface Starship {
+  id: number;
+  name: string;
+}
+
+export interface Vehicle {
+  id: number;
+  name: string;
+}
+
+
 export interface Film {
     id: number;
     title: string;
@@ -14,6 +40,11 @@ export interface Film {
     starships_count: number;
     vehicles_count: number;
     species_count: number;
+    characters: Character[];
+    planets: Planet[];
+    starships: Starship[];
+    vehicles: Vehicle[];
+    species: Species[];
   }
   
   export interface FilmResponse {

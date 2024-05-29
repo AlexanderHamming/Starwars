@@ -2,6 +2,11 @@ export interface Homeworld {
     id: number;
     name: string;
   }
+
+  export interface Films {
+    id: number;
+    title: string;
+  }
   
   export interface Person {
     id: number;
@@ -22,6 +27,7 @@ export interface Homeworld {
     starships_count: number;
     vehicles_count: number;
     homeworld: Homeworld;
+    films: Films[];
   }
   
   export interface PeopleResponse {

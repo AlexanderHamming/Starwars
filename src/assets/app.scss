@@ -1,0 +1,43 @@
+// CARD START PAGES
+
+#card-title {
+    text-align: center;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+
+
+.card a {
+    text-decoration: none;
+    color: inherit;
+}  
+
+
+
+#DetailsIMG {
+    max-width: 500px;
+    margin: auto;
+}
+
+#CardText {
+    margin-top: 2rem;
+    margin-left: 12rem;
+    list-style-type:none;
+}
+
+#CardText ul{
+    padding-left: 0;
+    list-style-type:none;
+}
+
+
+#CardText strong {
+    color: yellow;
+    margin-bottom: 0.5rem;
+}
+
+#underText {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
