@@ -1,15 +1,15 @@
 import Button from "react-bootstrap/Button";
 import PaginationPrips from "../types/Pagination";
 
-
 const Pagination: React.FC<PaginationPrips> = ({
-    hasNextPage,
-    hasPreviousPage,
-    onNextPage,
-    onPreviousPage,
-    currentPage,
-    totalPages,
-  }) => { return (
+  hasNextPage,
+  hasPreviousPage,
+  onNextPage,
+  onPreviousPage,
+  currentPage,
+  totalPages,
+}) => {
+  return (
     <div className="d-flex justify-content-between align-items-center">
       <div className="prev">
         <Button
@@ -27,11 +27,7 @@ const Pagination: React.FC<PaginationPrips> = ({
       </div>
 
       <div className="next">
-        <Button
-          disabled={!hasNextPage}
-          onClick={onNextPage}
-          variant="primary"
-        >
+        <Button disabled={!hasNextPage} onClick={onNextPage} variant="primary">
           Next Page
         </Button>
       </div>

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { FilmResponse, Film } from "../types/Films";
-import { PeopleResponse } from "../types/People";
+import { PeopleResponse, Person } from "../types/People";
 
 const instance = axios.create({
     baseURL: "https://swapi.thehiveresistance.com/api",
@@ -35,5 +35,5 @@ export const getFilms = (page: number, query: string = '') => {
 
   
   export const getPerson = (id: string) => {
-	return get<Film>(`/films/${id}`);
+	return get<Person>(`/people/${id}`);
   }
