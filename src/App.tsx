@@ -8,7 +8,7 @@ import NotFoundPage from './pages/pages_home/NotFoundPage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { Container } from 'react-bootstrap';
 import NavigationBar from "./components/navbar"
-import './assets/app.scss';
+
 
 
 
