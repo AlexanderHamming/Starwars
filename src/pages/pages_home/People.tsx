@@ -86,7 +86,7 @@ const People = () => {
                       variant="top"
                       src={person.image_url}
                       alt={person.name}
-                      height={400}
+                      className="peoplePictures"
                     />
                     <Card.Body>
                       <Card.Title id="card-title">{person.name}</Card.Title>

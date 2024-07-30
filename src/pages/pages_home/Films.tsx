@@ -80,7 +80,7 @@ const Films = () => {
                       variant="top"
                       src={film.image_url}
                       alt={film.title}
-                      height={400}
+                      className="filmPictures"
                     />
                     <Card.Body>
                       <Card.Title id="card-title">{film.title}</Card.Title>

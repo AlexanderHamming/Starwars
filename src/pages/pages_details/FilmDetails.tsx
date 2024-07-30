@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getFilm } from "../../services/StarWarsAPI";
-import { Film } from "../../types/Films";
+import { FilmDetailsType } from "../../types/Films";
 import {
   Container,
   Spinner,
@@ -14,7 +14,7 @@ import {
 
 const FilmDetails = () => {
   const { id } = useParams<{ id: string }>();
-  const [film, setFilm] = useState<Film | null>(null);
+  const [film, setFilm] = useState<FilmDetailsType | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -57,13 +57,13 @@ const FilmDetails = () => {
             <Card.Body id="card-body">
               <Card.Title>{film.title}</Card.Title>
               <Card.Text>
+              <strong>Opening Crawl:</strong> {film.opening_crawl}
+                <br />
                 <strong>Director:</strong> {film.director}
                 <br />
                 <strong>Producer:</strong> {film.producer}
                 <br />
                 <strong>Release Date:</strong> {film.release_date}
-                <br />
-                <strong>Opening Crawl:</strong> {film.opening_crawl}
                 <br />
               </Card.Text>
               <div id="underText_film">

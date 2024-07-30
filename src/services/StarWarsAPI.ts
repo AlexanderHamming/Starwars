@@ -1,5 +1,5 @@
 import axios from "axios";
-import { FilmResponse, Film } from "../types/Films";
+import { FilmResponse, FilmDetailsType } from "../types/Films";
 import { PeopleResponse, Person } from "../types/People";
 
 const instance = axios.create({
@@ -24,7 +24,7 @@ export const getFilms = (page: number, query: string = "") => {
 };
 
 export const getFilm = (id: string) => {
-  return get<Film>(`/films/${id}`);
+  return get<FilmDetailsType>(`/films/${id}`);
 };
 
 export const getPeople = (page: number, query: string = "") => {
