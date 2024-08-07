@@ -57,7 +57,7 @@ const FilmDetails = () => {
             <Card.Body id="card-body">
               <Card.Title>{film.title}</Card.Title>
               <Card.Text>
-              <strong>Opening Crawl:</strong> {film.opening_crawl}
+                <strong>Opening Crawl:</strong> {film.opening_crawl}
                 <br />
                 <strong>Director:</strong> {film.director}
                 <br />
